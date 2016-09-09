@@ -26,8 +26,8 @@ RUN \
 EXPOSE 80 443 2015
 WORKDIR /srv
 
-ADD Caddyfile /etc/Caddyfile
-ADD index.html /srv/index.html
+COPY Caddyfile /etc/Caddyfile
+COPY index.html /srv/index.html
 
 USER caddy
 
