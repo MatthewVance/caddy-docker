@@ -1,7 +1,7 @@
 FROM debian:jessie
 MAINTAINER Matthew Vance
 
-LABEL caddy_version="0.9.2" architecture="amd64"
+LABEL caddy_version="0.9.3" architecture="amd64"
 
 ARG plugins=
 
