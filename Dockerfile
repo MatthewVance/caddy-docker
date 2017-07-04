@@ -1,7 +1,7 @@
 FROM debian:jessie
 MAINTAINER Matthew Vance
 
-LABEL caddy_version="0.9.3" architecture="amd64"
+LABEL architecture="amd64"
 
 ARG plugins=
 
@@ -15,7 +15,7 @@ RUN \
     adduser --disabled-password --system --no-create-home --shell /sbin/nologin --group caddy && \
     curl --silent --show-error --fail --location \
           --header "Accept: application/tar+gzip, application/x-gzip, application/octet-stream" -o - \
-          "https://caddyserver.com/download/build?os=linux&arch=amd64&features=${plugins}" \
+          "https://caddyserver.com/download/linux/amd64?plugins=${plugins}" \
         | tar --no-same-owner -C /usr/bin/ -xz caddy && \
      chmod 0755 /usr/bin/caddy && \
      setcap cap_net_bind_service=+ep /usr/bin/caddy && \
