@@ -1,10 +1,10 @@
-FROM debian:jessie
+FROM debian:stretch
 MAINTAINER Matthew Vance
 
 LABEL caddy_version="0.10.4" architecture="amd64"
 
 RUN \
-    BUILD_DEPS='ca-certificates curl' && \
+    BUILD_DEPS='ca-certificates curl libcap2-bin' && \
     set -x && \
     DEBIAN_FRONTEND=noninteractive apt-get update && apt-get install -y --no-install-recommends \
       $BUILD_DEPS && \
