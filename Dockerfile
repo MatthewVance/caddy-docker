@@ -1,9 +1,7 @@
 FROM debian:jessie
 MAINTAINER Matthew Vance
 
-LABEL architecture="amd64"
-
-ARG plugins=
+LABEL caddy_version="0.10.4" architecture="amd64"
 
 RUN \
     BUILD_DEPS='ca-certificates curl' && \
@@ -15,7 +13,7 @@ RUN \
     adduser --disabled-password --system --no-create-home --shell /sbin/nologin --group caddy && \
     curl --silent --show-error --fail --location \
           --header "Accept: application/tar+gzip, application/x-gzip, application/octet-stream" -o - \
-          "https://caddyserver.com/download/linux/amd64?plugins=${plugins}" \
+          "https://github.com/mholt/caddy/releases/download/v0.10.4/caddy_v0.10.4_linux_amd64.tar.gz" \
         | tar --no-same-owner -C /usr/bin/ -xz caddy && \
      chmod 0755 /usr/bin/caddy && \
      setcap cap_net_bind_service=+ep /usr/bin/caddy && \
