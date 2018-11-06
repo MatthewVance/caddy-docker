@@ -15,7 +15,7 @@ A Docker image for [Caddy](https://caddyserver.com/).
 Run this container with the following command:
 
 ```console 
-$ docker run -d -p 2015:2015 mvance/caddy
+$ docker run -d -p 2015:2015/tcp mvance/caddy:latest
 ```
 
 Add-ons can be configured via the plugins build arg.
